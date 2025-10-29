@@ -117,7 +117,7 @@
                   <div class="swiper-slide">
                     <img src="img/portfolio/details/jewelry/table_purchase.png" alt="" />
                   </div>
-                  
+
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -223,6 +223,36 @@
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const portfolioImages = document.querySelectorAll(".portfolio-info img");
+      const overlay = document.getElementById("imgOverlay");
+      const fullscreenImg = document.getElementById("fullscreenImg");
+
+      if (!overlay || !fullscreenImg) return;
+
+      portfolioImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          fullscreenImg.src = img.src;
+          overlay.classList.add("active");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("active");
+      });
+    });
+  </script>
 </body>
+
+<div class="portfolio-info">
+  <img src="diagram1.jpg" alt="Diagram Example" />
+</div>
+
+<!-- Fullscreen Overlay -->
+<div class="fullscreen-overlay" id="imgOverlay">
+  <img id="fullscreenImg" src="" alt="Zoomed Image" />
+</div>
 
 </html>
